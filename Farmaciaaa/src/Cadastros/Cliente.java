@@ -13,8 +13,8 @@ import java.util.Scanner;
 public class Cliente extends Pessoa implements Serializable, Comparable<Object>{ 
 
 	private static final long serialVersionUID = 4L;	
-	public static final String ARQUIVO ="C:\\Users\\User\\eclipse-workspace\\Farmacia\\Database\\Cliente.csv";
-	public static final String ARQUIVO_SERIAL = "C:\\Users\\User\\eclipse-workspace\\Farmacia\\Database\\Cliente.obj";
+	public static final String ARQUIVO ="C:\\Users\\User\\DvvSoftware\\Farmacia\\DataBase\\Cliente.csv";
+	public static final String ARQUIVO_SERIAL = "C:\\Users\\User\\DvvSoftware\\Farmacia\\DataDase\\Cliente.obj";
 
 	private String telefone;
 	
