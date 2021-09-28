@@ -28,6 +28,7 @@ public class AzulPrincipal {
 		System.out.printf("Digite uma das opções acima: ");
 		Integer op = s.nextInt();
 		irTela(op);
+		s.close();
 	}
 
 	private static void irTela(Integer op) {switch (op) {
