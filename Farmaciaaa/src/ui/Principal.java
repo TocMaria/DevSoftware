@@ -5,8 +5,12 @@ import java.util.Scanner;
 import Cadastros.Cliente;
 import Cadastros.Funcionario;
 import Utils.EntidadeGenerica;
+import DAO.ClienteDAO;
 
 public class Principal {
+	
+	private static ClienteDAO clienteDAO = new ClienteDAO();
+
 
 	public static void main(String array[]) {
 		montaTelaPrincipal();
@@ -77,7 +81,7 @@ public class Principal {
 			break;
 
 		default:
-			System.out.printf("Entra1da inválida!");
+			System.out.printf("Entrada inválida!");
 			montaTelaPrincipal();
 
 		}
@@ -85,6 +89,36 @@ public class Principal {
 		s.close();
 	}
 
+	private static void cadastroCliente() {
+		System.out.println("\t Cliente\n");
+		System.out.println("1.Inserir");
+		System.out.println("2. Alterar");
+		System.out.println("3. Voltar");
+		
+		System.out.printf("Digite uma das opções acima: ");
+		Scanner s = new Scanner(System.in);
+		Integer op = s.nextInt();
+
+		switch (op) {
+		case 1:
+			inserirCliente();
+			break;
+
+		case 2:
+			alterarCLiente();
+			break;
+			
+		case 3:
+			irMenuCadastro();
+			break;
+
+		default:
+			System.out.printf("Entrada inválida!");
+			montaTelaPrincipal();
+	}
+	}
+
+	
 	private static void irMenuRelatorio() {
 
 		System.out.println("\t RELATORIOS\n");
@@ -148,7 +182,7 @@ public class Principal {
 		s.close();
 	}
 
-	private static void cadastroCliente() {
+	private static void inserirCliente() {
 		Scanner s = new Scanner(System.in);
 		Cliente cliente = new Cliente();
 		System.out.println("\t CADASTRANDO CLIENTE \n");
@@ -177,6 +211,28 @@ public class Principal {
 		montaTelaPrincipal();
 
 	}
+	private static void alterarCLiente() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("\t ALTERAÇÃO DE CLIENTE \n");
+
+		System.out.println("Informe id do cliente: ");
+		int id = s.nextInt();
+		Cliente cliente = clienteDAO.buscar(id);
+	
+
+		System.out.println("Nome: ");
+		cliente.setNome(s.nextLine());
+		System.out.println("CPF: ");
+		cliente.setCpf(s.nextLine());
+		System.out.println("RG: ");
+		cliente.setRg(s.nextLine());
+		System.out.println("Telefone: ");
+		cliente.setTelefone(s.nextLine());
+		System.out.println("Endereco: ");
+		cliente.setEndereco(s.nextLine());	
+		s.close();
+	}
+
 
 	private static void cadastroFuncionario() {
 		Scanner s = new Scanner(System.in);

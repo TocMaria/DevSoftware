@@ -7,6 +7,7 @@ public class Pessoa  extends Persistencia implements Serializable, Comparable<Ob
 	
 	private static final long serialVersionUID = 4L;
 	
+	private int id;
 	private String nome;
 	private String cpf;
 	private String rg;
@@ -63,6 +64,14 @@ public class Pessoa  extends Persistencia implements Serializable, Comparable<Ob
 	public int compareTo(Object o) {
 		Pessoa p = (Pessoa) o;		
 		return this.getNome().compareTo(p.getNome());			
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }
